@@ -8,7 +8,7 @@ const Header: FC = (props) => {
         <Link href="/">Homepage</Link>
       </li>
       <li>
-        <Link href="/users">Users page</Link>
+        <Link href="/exchanges">Exchanges page</Link>
       </li>
     </ul>
   );

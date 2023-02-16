@@ -1,15 +1,13 @@
-import type { NextApiRequest } from "next";
-
-export const getUsers = async () => {
-  const data = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users = await data.json();
-  return users;
+export const getExchanges = async () => {
+  const data = await fetch("https://api.coingecko.com/api/v3/exchanges/");
+  const exchanges = await data.json();
+  return exchanges;
 };
 
-export const getUser = async (userId: string | string[]) => {
+export const getExchange = async (exchangeId: string | string[]) => {
   const data = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${userId}`
+    `https://api.coingecko.com/api/v3/exchanges/${exchangeId}`
   );
-  const user = await data.json();
-  return user;
+  const exchange = await data.json();
+  return exchange;
 };

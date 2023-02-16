@@ -1,1 +1,1 @@
-export { getUsers, getUser } from "./db";
+export { getExchanges, getExchange } from "./db";
