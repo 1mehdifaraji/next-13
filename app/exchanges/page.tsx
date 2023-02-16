@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getExchanges } from "@/util";
+import { API_URL, getExchanges } from "@/util";
 import axios from "axios";
 
 const getExchangesData = async (): Promise<Exchange[]> => {
@@ -9,7 +9,7 @@ const getExchangesData = async (): Promise<Exchange[]> => {
   // {cache   : "force-cache"}
   // ISR Incremental Static Regeneration
   // {next  : { revalidate : 1 }}
-  const res = await fetch("https://api.coingecko.com/api/v3/exchanges/", {
+  const res = await fetch(`${API_URL}/exchanges`, {
     cache: "no-store",
   });
   const exchanges = await res.json();
