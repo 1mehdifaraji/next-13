@@ -3,11 +3,14 @@ import { getExchanges } from "@/util";
 import Exchange from "./Exchange";
 
 const getExchange = async (exchangeId: string) => {
-  const res = await fetch(`http://localhost:3000/api/exchange/${exchangeId}`, {
-    next: {
-      revalidate: 120,
-    },
-  });
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/exchanges/${exchangeId}`,
+    {
+      next: {
+        revalidate: 120,
+      },
+    }
+  );
   return res.json();
 };
 

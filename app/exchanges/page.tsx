@@ -9,7 +9,7 @@ const getExchangesData = async (): Promise<Exchange[]> => {
   // {cache   : "force-cache"}
   // ISR Incremental Static Regeneration
   // {next  : { revalidate : 1 }}
-  const res = await fetch("http://localhost:3000/api/exchanges", {
+  const res = await fetch("https://api.coingecko.com/api/v3/exchanges/", {
     cache: "no-store",
   });
   const exchanges = await res.json();
