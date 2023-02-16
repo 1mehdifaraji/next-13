@@ -3,7 +3,7 @@ import { API_URL, getExchanges } from "@/util";
 import Exchange from "./Exchange";
 
 const getExchange = async (exchangeId: string) => {
-  const res = await fetch(`${API_URL}/${exchangeId}`, {
+  const res = await fetch(`${API_URL}/exchange/${exchangeId}`, {
     next: {
       revalidate: 120,
     },
