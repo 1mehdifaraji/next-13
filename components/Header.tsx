@@ -10,6 +10,9 @@ const Header: FC = (props) => {
       <li>
         <Link href="/exchanges">Exchanges page</Link>
       </li>
+      <li>
+        <Link href="/users">Users page</Link>
+      </li>
     </ul>
   );
 };

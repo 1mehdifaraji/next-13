@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { API_URL, getExchanges } from "@/util";
 import Exchange from "./Exchange";
 
-const getExchange = async (exchangeId: string) => {
+const getExchange = async (exchangeId: string): Promise<Exchange> => {
   const res = await fetch(`${API_URL}/exchange/${exchangeId}`, {
     next: {
       revalidate: 120,
@@ -13,9 +13,9 @@ const getExchange = async (exchangeId: string) => {
 };
 
 const ExchangePage = async ({ params: { exchangeId } }: ExchangePage) => {
-  const exchange: Exchange = await getExchange(exchangeId);
+  const exchange = await getExchange(exchangeId);
 
-  if (!exchange.id) return notFound();
+  if (!exchange?.id) return notFound();
 
   return (
     <div className="text-center my-10">
@@ -29,7 +29,7 @@ export default ExchangePage;
 export const generateStaticParams = async () => {
   const exchanges = await getExchanges();
 
-  return exchanges.map((exchange: Exchange) => ({
+  return exchanges.map((exchange) => ({
     exchangeId: exchange.id,
   }));
 };
