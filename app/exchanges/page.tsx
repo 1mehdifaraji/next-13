@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { API_URL, getExchanges } from "@/util";
 import axios from "axios";
+import { notFound } from "next/navigation";
 
 const getExchangesData = async (): Promise<Exchange[]> => {
   // Server Side Rendering
@@ -25,6 +26,8 @@ const ExchangesPage = async () => {
   // );
   // Or calling our own created api with fetch
   const exchanges = await getExchangesData();
+
+  if (exchanges?.length === 0) return notFound();
 
   return (
     <div className="flex flex-col items-center space-y-5 my-5">
