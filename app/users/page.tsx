@@ -2,7 +2,7 @@ import { API_URL } from "@/util";
 import Link from "next/link";
 
 const getUsers = async (): Promise<User[]> => {
-  const res = await fetch(`${API_URL}/users`);
+  const res = await fetch(`${API_URL}/users`, { cache: "no-store" });
   const users = await res.json();
   return users;
 };

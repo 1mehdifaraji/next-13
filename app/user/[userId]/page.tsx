@@ -5,7 +5,7 @@ import User from "./User";
 
 const getUser = async (userId: string): Promise<User> => {
   const res = await fetch(`${API_URL}/user/${userId}`, {
-    next: { revalidate: 1 },
+    next: { revalidate: 120 },
   });
   const user = await res.json();
   return user;
